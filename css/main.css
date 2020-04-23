@@ -1170,7 +1170,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffcf9c;
+  background: #fffa28;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2205,12 +2205,8 @@ embed {
 .menu-item {
   background-color: #383838; /*灰色*/
 }
-@font-face {
-  font-family: mypoemttf;
-  src: url("/tff/Newhardregularscriptsim.ttf");
-}
 .mypoem {
-  font-family: mypoemttf;
+  color: #f0f0f0;
 }
 @media (max-width: 767px) {
   .site-nav {

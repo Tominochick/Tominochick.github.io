@@ -121,6 +121,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -131,19 +136,7 @@
 
 
 
-<style>
-/*自己加的诗歌晓之车*/
-@font-face
-{
-	font-family: mypoemttf;
-	src: url('/images/ttf/New hard regular script sim.ttf');
-}
-.mypoem
-{
-  font-family: mypoemttf;
-}
-</style>
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <center  class="mypoem">
 <strong>暁の車</strong><br> 
 怀念的嫩芽正在生根发芽<br>
@@ -315,6 +308,11 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/1245190675@qq.com" title="E-Mail → 1245190675@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -343,8 +341,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Tomino chick</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
 
         
 <div class="busuanzi-count">
@@ -416,6 +412,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'mUIYrmouPSnek5QcKdzlx4qk-gzGzoHsz',
+      appKey     : 'wkJqboBQqyMP1niL0oigmY3Y',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

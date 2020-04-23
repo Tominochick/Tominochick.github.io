@@ -32,9 +32,8 @@
   <entry>
     <title>python format()函数</title>
     <url>/2020/04/23/%E3%80%90Python%E3%80%91format()%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA---%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<hr>
-<p>@<a href="目录">TOC</a></p>
-<h1 id="一、旧式-格式化输出"><a href="#一、旧式-格式化输出" class="headerlink" title="一、旧式 % 格式化输出"></a>一、旧式 % 格式化输出</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"a"</span></span><br><span class="line">print(<span class="string">"这是一个字符%c"</span> % a)</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="一、旧式-格式化输出"><a href="#一、旧式-格式化输出" class="headerlink" title="一、旧式 % 格式化输出"></a>一、旧式 % 格式化输出</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"a"</span></span><br><span class="line">print(<span class="string">"这是一个字符%c"</span> % a)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <table>
 <thead>
 <tr>
@@ -58,52 +57,15 @@
 <td>%f</td>
 <td>浮点型</td>
 </tr>
-<tr>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td><strong>多个输出</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"a"</span></span><br><span class="line">b = <span class="string">"string"</span></span><br><span class="line">print(<span class="string">"这是一个字符%c和 一段字符串%s"</span> % (a, b))</span><br></pre></td></tr></table></figure></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>保留小数</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">520.1314666</span></span><br><span class="line">print(<span class="string">"保留四位小数%.4f"</span> % a)</span><br></pre></td></tr></table></figure></td>
-<td></td>
-</tr>
-<tr>
-<td># 二、format格式化输出</td>
-<td></td>
-</tr>
-<tr>
-<td>## 定位输出</td>
-<td></td>
-</tr>
-<tr>
-<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"人生苦短"</span></span><br><span class="line">second = <span class="string">"我始终在你身边"</span></span><br><span class="line">print(<span class="string">"虽然&#123;&#125;,但是&#123;&#125;"</span>.format(first, second))</span><br><span class="line"></span><br><span class="line"><span class="meta">@ JYL</span></span><br></pre></td></tr></table></figure></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>在{}中输入定位</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"人生苦短"</span></span><br><span class="line">second = <span class="string">"我始终在你身边"</span></span><br><span class="line">print(<span class="string">"&#123;1&#125;,即使&#123;0&#125;"</span>.format(first, second)</span><br></pre></td></tr></table></figure></td>
-<td></td>
-</tr>
-<tr>
-<td>## “:”高级输出</td>
-<td></td>
-</tr>
 </tbody></table>
-<p><strong>参数位置 : 输出方法</strong></p>
+<p><strong>多个输出</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"a"</span></span><br><span class="line">b = <span class="string">"string"</span></span><br><span class="line">print(<span class="string">"这是一个字符%c和 一段字符串%s"</span> % (a, b))</span><br></pre></td></tr></table></figure>
+<p><strong>保留小数</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">520.1314666</span></span><br><span class="line">print(<span class="string">"保留四位小数%.4f"</span> % a)</span><br></pre></td></tr></table></figure>
+<h1 id="二、format格式化输出"><a href="#二、format格式化输出" class="headerlink" title="二、format格式化输出"></a>二、format格式化输出</h1><h2 id="定位输出"><a href="#定位输出" class="headerlink" title="定位输出"></a>定位输出</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"人生苦短"</span></span><br><span class="line">second = <span class="string">"我始终在你身边"</span></span><br><span class="line">print(<span class="string">"虽然&#123;&#125;,但是&#123;&#125;"</span>.format(first, second))</span><br><span class="line"></span><br><span class="line"><span class="meta">@ JYL</span></span><br></pre></td></tr></table></figure>
+<p><strong>在{}中输入定位</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"人生苦短"</span></span><br><span class="line">second = <span class="string">"我始终在你身边"</span></span><br><span class="line">print(<span class="string">"&#123;1&#125;,即使&#123;0&#125;"</span>.format(first, second)</span><br></pre></td></tr></table></figure>
+<h2 id="“-”高级输出"><a href="#“-”高级输出" class="headerlink" title="“:”高级输出"></a>“:”高级输出</h2><p><strong>参数位置 : 输出方法</strong></p>
 <h3 id="1、数的格式"><a href="#1、数的格式" class="headerlink" title="1、数的格式"></a>1、数的格式</h3><p>保留小数</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="number">520.13146666</span></span><br><span class="line">second = <span class="number">1</span></span><br><span class="line">print(<span class="string">"我想对你说&#123;0:.4f&#125;"</span>.format(first))<span class="comment"># 冒号前的0可以省略，保留四位小数</span></span><br><span class="line">print(<span class="string">"我&#123;:.0%&#125;爱你"</span>.format(second))<span class="comment"># %输出</span></span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>

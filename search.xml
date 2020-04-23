@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>matplotlib设置中文</title>
+    <url>/2020/04/22/%E3%80%90Python%20%20matplotlib%E3%80%91%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB4%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20%20~%20matplotlib%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%EF%BC%88pycharm%E8%AE%BE%E7%BD%AE%EF%BC%89%20~%20python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+    <content><![CDATA[<h1 id="总结网上方法，备忘"><a href="#总结网上方法，备忘" class="headerlink" title="总结网上方法，备忘"></a>总结网上方法，备忘</h1><p>@<a href="目录">TOC</a></p>
+<h1 id="第①步-找到中文字tff文件或下载"><a href="#第①步-找到中文字tff文件或下载" class="headerlink" title="第①步  找到中文字tff文件或下载"></a>第①步  找到中文字tff文件或下载</h1><h2 id="微软自带tff字体"><a href="#微软自带tff字体" class="headerlink" title="微软自带tff字体"></a>微软自带tff字体</h2><p>1、控制面板—&gt;<br>2、外观和个性化—&gt;<br>3、字体—&gt;<br>4、复制.tff文件（复制你想添加进matplotlib里的）</p>
+<h2 id="自己网上下载"><a href="#自己网上下载" class="headerlink" title="自己网上下载"></a>自己网上下载</h2><p>字由</p>
+<h1 id="第②步-设置matplotlib"><a href="#第②步-设置matplotlib" class="headerlink" title="第②步  设置matplotlib"></a>第②步  设置matplotlib</h1><a id="more"></a>
+<p>1、找到matplotlib包的位置,添加tff<br>右键你的python快捷方式，打开文件所在文件夹，如果打开后的文件夹里还是快捷方式继续右键打开文件所在文件夹。<br>依次点<br>Lib &gt; site-packages &gt; matplotlib &gt; mpl-data &gt; fonts &gt; tff<br>把刚复制的tff字体文件扔进去。并复制一下名字。<br>2、设置matplotlibrc<br>Lib &gt; site-packages &gt; matplotlib &gt; mpl-data<br>有一个matplotlibrc文件。<br>右键用记事本打开<br>找到(我的在记事本的248行和256行，版本定)<br>删除“#”号</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#font.family  : sans-serif</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#font.sans-serif : DejaVu Sans, Bitstream Vera Sans, ...</span></span><br></pre></td></tr></table></figure>
+<p>并把刚复制的文件名字添加到第二个里面，我复制的是simsun</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">font.sans-serif :simsun, DejaVu Sans, Bitstream Vera Sans, ...</span><br><span class="line">别搞中文逗号！</span><br></pre></td></tr></table></figure>
+<p>负号显示错误改（395行）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#axes.unicode_minus : True</span></span><br></pre></td></tr></table></figure>
+<p>改为：前删除# 后改False</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">axes.unicode_minus : <span class="literal">False</span></span><br><span class="line">ctrl + s 保存</span><br></pre></td></tr></table></figure>
+<p>3、重载<br>打开IDLE</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> _rebuild</span><br><span class="line">&gt;&gt;&gt;_rebuild</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="PS-用pycharm的注意"><a href="#PS-用pycharm的注意" class="headerlink" title="PS:用pycharm的注意"></a>PS:用pycharm的注意</h2><p>用pycharm的，虚拟环境里的Lib也改一下吧（滑稽）<br>我是在新建项目时<br>点开    Project Interpreter：（项目解释者，欺负我看不懂英文让我好找）</p>
+<p>选中  inherit global site-packages （继承全局包）</p>
+<p>END!</p>
+]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>matplotlib, 设置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python format()函数</title>
+    <url>/2020/04/23/%E3%80%90Python%E3%80%91format()%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA---%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<hr>
+<p>@<a href="目录">TOC</a></p>
+<h1 id="一、旧式-格式化输出"><a href="#一、旧式-格式化输出" class="headerlink" title="一、旧式 % 格式化输出"></a>一、旧式 % 格式化输出</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"a"</span></span><br><span class="line">print(<span class="string">"这是一个字符%c"</span> % a)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>输出方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%c</td>
+<td>单字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>十进制</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点型</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td><strong>多个输出</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"a"</span></span><br><span class="line">b = <span class="string">"string"</span></span><br><span class="line">print(<span class="string">"这是一个字符%c和 一段字符串%s"</span> % (a, b))</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>保留小数</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">520.1314666</span></span><br><span class="line">print(<span class="string">"保留四位小数%.4f"</span> % a)</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td># 二、format格式化输出</td>
+<td></td>
+</tr>
+<tr>
+<td>## 定位输出</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"人生苦短"</span></span><br><span class="line">second = <span class="string">"我始终在你身边"</span></span><br><span class="line">print(<span class="string">"虽然&#123;&#125;,但是&#123;&#125;"</span>.format(first, second))</span><br><span class="line"></span><br><span class="line"><span class="meta">@ JYL</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>在{}中输入定位</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"人生苦短"</span></span><br><span class="line">second = <span class="string">"我始终在你身边"</span></span><br><span class="line">print(<span class="string">"&#123;1&#125;,即使&#123;0&#125;"</span>.format(first, second)</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>## “:”高级输出</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>参数位置 : 输出方法</strong></p>
+<h3 id="1、数的格式"><a href="#1、数的格式" class="headerlink" title="1、数的格式"></a>1、数的格式</h3><p>保留小数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="number">520.13146666</span></span><br><span class="line">second = <span class="number">1</span></span><br><span class="line">print(<span class="string">"我想对你说&#123;0:.4f&#125;"</span>.format(first))<span class="comment"># 冒号前的0可以省略，保留四位小数</span></span><br><span class="line">print(<span class="string">"我&#123;:.0%&#125;爱你"</span>.format(second))<span class="comment"># %输出</span></span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">我想对你说520.1315</span><br><span class="line">我100%爱你</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{:b}</td>
+<td>二进制</td>
+</tr>
+<tr>
+<td>d</td>
+<td>十进制</td>
+</tr>
+<tr>
+<td>o</td>
+<td>八进制</td>
+</tr>
+<tr>
+<td>x</td>
+<td>十六进制</td>
+</tr>
+<tr>
+<td>%</td>
+<td>百分制，如数值1会被输出位100%</td>
+</tr>
+<tr>
+<td>,</td>
+<td>千分号，如100，000￥</td>
+</tr>
+<tr>
+<td>e</td>
+<td>带幂（e）符号输出</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>g</td>
+<td>一般格式，数字以fixed-point进行输出,当数值特别大的时候，用幂形式打印</td>
+</tr>
+<tr>
+<td>n</td>
+<td>数字，当值为整数时和”d”相同，值为浮点数是和”g”相同，不同的是他会根据区域设置插入数字分隔符。</td>
+</tr>
+<tr>
+<td><strong>对数据本身进行操作</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">number = <span class="number">520.1314666</span></span><br><span class="line">a = format(number,<span class="string">".4f"</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>输出结果</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">520.1315 # 注意为str类型</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>### 2、对齐</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"我爱你"</span></span><br><span class="line">print(<span class="string">"我想对你说&#123;:&gt;20&#125;"</span>.format(first))</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>“&gt;”号表示右对齐，20表示<strong>总</strong>输出长度是20字符（含空）</td>
+<td></td>
+</tr>
+<tr>
+<td>输出结果</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">我想对你说                 我爱你</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>格式</td>
+<td>对齐方式</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>左（默认）</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>右</td>
+</tr>
+<tr>
+<td>^</td>
+<td>居中（偶数偏左）</td>
+</tr>
+<tr>
+<td><strong>自定义填充</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"我爱你"</span></span><br><span class="line">print(<span class="string">"&#123;:a^20&#125;"</span>.format(first))</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>输出为：</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">aaaaaaaa我爱你aaaaaaaaa</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>自定义化：</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">first = <span class="string">"我爱你"</span></span><br><span class="line">second = <span class="string">"*"</span></span><br><span class="line">print(<span class="string">"&#123;0:&#123;1&#125;^20&#125;"</span>.format(first, second))</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>输出为：</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">********我爱你*********</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td># 三、向函数中传入序列（除了元组？）</td>
+<td></td>
+</tr>
+<tr>
+<td>用[]来访问值</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list = [<span class="string">"我爱你"</span>, <span class="string">"一生一世"</span>, <span class="string">"不离不弃"</span>, <span class="string">"永不分离"</span>]</span><br><span class="line">print(<span class="string">"&#123;[0]&#125;"</span>.format(list))</span><br><span class="line"><span class="comment"># 元组会报错</span></span><br><span class="line">list2 = <span class="number">520.1314666</span>, <span class="number">775.852166</span></span><br><span class="line">print(<span class="string">"因为&#123;[0]&#125;, 所以&#123;[1]&#125;"</span>.format(list2))</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>也可以访问修改键值</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict = &#123;<span class="string">"a"</span>: <span class="string">"我爱你"</span>, <span class="string">"b"</span>: <span class="string">"一生一世"</span>, <span class="string">"c"</span>: <span class="string">"不离不弃"</span>&#125;</span><br><span class="line">print(<span class="string">"因为&#123;0[a]&#125;, 所以&#123;0[c]&#125;"</span>.format(dict))</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>输出为：</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">因为我爱你, 所以不离不弃</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>可以看出 <strong>:号</strong>前定位参数 ，是定位后方format函数中传入对象的位置。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>另一种方式，直接使用键</strong><br>对象前加 **</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict = &#123;<span class="string">"a"</span>: <span class="string">"我爱你"</span>, <span class="string">"b"</span>: <span class="string">"一生一世"</span>, <span class="string">"c"</span>: <span class="string">"不离不弃"</span>&#125;</span><br><span class="line">print(<span class="string">"因为&#123;a&#125;, 所以&#123;c&#125;"</span>.format(**dict))</span><br></pre></td></tr></table></figure>
+
+<p><strong>END</strong></p>
+]]></content>
+      <categories>
+        <category>python基础</category>
+      </categories>
+      <tags>
+        <tag>python-format函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>少年中国说</title>
+    <url>/2020/04/22/%E5%B0%91%E5%B9%B4%E4%B8%AD%E5%9B%BD%E8%AF%B4/</url>
+    <content><![CDATA[<h1 id="用来测试显示效果"><a href="#用来测试显示效果" class="headerlink" title="用来测试显示效果"></a>用来测试显示效果</h1><p>《少年中国说》 梁启超</p>
+<a id="more"></a>
+<center>《少年中国说》<center>
+<center>梁启超<center>
+<br>
+<center>
+使举国之少年而果为少年也，则吾中国为未来之国，其进步未可量也。<br>
+使举国之少年而亦为老大也，则吾中国为过去之国，其澌亡可翘足而待也。<br>
+故今日之责任，不在他人，而全在我少年。
+<br>少年智则国智，少年富则国富；<br>少年强则国强，少年独立则国独立；<br>少年自由则国自由；少年进步则国进步；<br>少年胜于欧洲，则国胜于欧洲；<br>少年雄于地球，则国雄于地球。<br>红日初升，其道大光。<br>河出伏流，一泻汪洋。<br>潜龙腾渊，鳞爪飞扬。<br>乳虎啸谷，百兽震惶。<br>鹰隼试翼，风尘翕张。<br>奇花初胎，矞矞皇皇。<br>干将发硎，有作其芒。<br>天戴其苍，地履其黄。<br>纵有千古，横有八荒。<br>前途似海，来日方长。<br>美哉我少年中国，与天不老！<br>壮哉我中国少年，与国无疆！<center>
+]]></content>
+  </entry>
+</search>
